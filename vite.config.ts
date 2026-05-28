@@ -1,17 +1,12 @@
-import path from "path";
-import { fileURLToPath } from "url";
-import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { viteSingleFile } from "vite-plugin-singlefile";
+import react from "@vitejs/plugin-react";
+import path from "path";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), viteSingleFile()],
-  base: '/space_lesson/',
+  plugins: [react()],
+  // Если твой сайт на GitHub Pages открывается по адресу username.github.io/space_lesson/
+  // то base должен быть именно таким:
+  base: '/space_lesson/', 
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
